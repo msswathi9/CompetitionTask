@@ -8,22 +8,52 @@ using System.Threading.Tasks;
 
 namespace ShareSkill.Utilities
 {
-    public class Wait
+    public class Wait : CommonDriver
     {
-        public void WaittobeClickable(IWebDriver driver, string locatertype, string locatervalue, int seconds)
+
+        public static void WaitToBeClickable(IWebDriver driver, string LocatorType, int seconds, string LocatorValue)
         {
-            var Wait = new WebDriverWait(driver, new TimeSpan(0, 0,seconds));
-            if (locatertype == "Xpath")
+            var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
+            if (LocatorType == "XPath")
             {
-                Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatertype)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(LocatorValue)));
             }
-            if(locatertype == "Id")
+            else if (LocatorType == "Id")
             {
-                Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(locatertype)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(LocatorValue)));
+
             }
-            if(locatertype == "Csselector")
+            else if (LocatorType == "CssSelector")
             {
-                Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(locatertype)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(LocatorValue)));
+
+            }
+            else if (LocatorType == "Name")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Name(LocatorValue)));
+
+            }
+        }
+        public static void WaitToBeVisible(IWebDriver driver, string LocatorType, int seconds, string LocatorValue)
+        {
+            var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
+
+            if (LocatorType == "XPath")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(LocatorValue)));
+            }
+            if (LocatorType == "Id")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id(LocatorValue)));
+            }
+            if (LocatorType == "CssSelector")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(LocatorValue)));
+            }
+            else if (LocatorType == "Name")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Name(LocatorValue)));
+
             }
         }
     }

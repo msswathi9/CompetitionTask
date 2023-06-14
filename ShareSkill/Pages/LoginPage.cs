@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 
 
+
 namespace ShareSkill.Pages
 {
-   
 
 
-    public class LoginPage
+
+    public class LoginPage: CommonDriver
     {
         [FindsBy(How=How.XPath, Using = "//*[@id=\"home\"]/div/div/div[1]/div/a")]
-       [CacheLookup]
         public IWebElement signInButton  { get; set; }
 
         [FindsBy(How=How.XPath, Using = "/html/body/div[2]/div/div/div[1]/div/div[1]/input")]
@@ -36,57 +36,72 @@ namespace ShareSkill.Pages
         //private IWebElement loginButton => CommonDriver.driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
 
 
-        public void loginActions(IWebDriver driver)
-        {
-
-            //Open chrome Browser
-            // driver = new ChromeDriver();
-
-           driver.Manage().Window.Maximize();
-
-            //Launch Mars URL
-
-          driver.Navigate().GoToUrl("http://localhost:5000/Home");
-
-            //Thread.Sleep(2000);
-            //Wait.WaittobeClickable(driver, "Xpath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
-            //signInButton.Click();
-
-            //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[1]/input", 5);
-            //userTextBox.SendKeys("msswathi9@gmail.com");
-
-            //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[2]/input", 5);
-            //passwordTextBox.SendKeys("Abcd@123");
-
-            //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[4]/button", 5);
-            //Thread.Sleep(2000);
-            //loginButton.Click();
-
-
-        }
-        //public void SigninButton()
+        //public void loginActions()
         //{
-        //    // Thread.Sleep(2000);
-        //    // Wait.WaittobeClickable(driver, "XPath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
 
-        //    signInButton.Click();
-        //}
-        //public void UserTextBox()
-        //{
+        //    //Open chrome Browser
+        //    // driver = new ChromeDriver();
+
+        //   //driver.Manage().Window.Maximize();
+
+        //    //Launch Mars URL
+
+        //  //driver.Navigate().GoToUrl("http://localhost:5000/Home");
+
+        //    //Thread.Sleep(2000);
+        //    //Wait.WaittobeClickable(driver, "Xpath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
+        //    //signInButton.Click();
+
         //    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[1]/input", 5);
-        //    userTextBox.SendKeys("msswathi9@gmail.com");
-        //}
-        //public void PasswordTextBox()
-        //{
-        //    // Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[2]/input", 5);
-        //    passwordTestBox.SendKeys("Abcd@123");
-        //}
-        //public void LogInButton()
-        //{
-        //    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[4]/button", 5);
-        //    Thread.Sleep(2000);
+        //    //userTextBox.SendKeys("msswathi9@gmail.com");
 
-        //    loginButton.Click();
+        //    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[2]/input", 5);
+        //    //passwordTextBox.SendKeys("Abcd@123");
+
+        //    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[4]/button", 5);
+        //    //Thread.Sleep(2000);
+        //    //loginButton.Click();
+        //    // //ExtentReports.LogInfo("CreateShareskillTests");
+        //   var loginpage = new LoginPage();
+        //    //Console.WriteLine("We are just before PageFactory Init");
+        //    PageFactory.InitElements(driver, LoginPage);
+        //    Thread.Sleep(5000);
+        //   //Wait.WaittobeClickable(driver, "Xpath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
+        //  signInButton.Click();
+
+        //    ExcelDataReader.PopulateInCollection("C:\\Users\\msswa\\OneDrive\\Desktop\\TestData.xlsx");
+
+
+
+        // userTextBox.SendKeys(ExcelDataReader.ReadData(2, "Column1"));
+        //  passwordTestBox.SendKeys(ExcelDataReader.ReadData(2, "Column2"));
+        //  loginButton.Click();
+
+
         //}
+        ////public void SigninButton()
+        ////{
+        ////    // Thread.Sleep(2000);
+        ////    // Wait.WaittobeClickable(driver, "XPath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
+
+        ////    signInButton.Click();
+        ////}
+        ////public void UserTextBox()
+        ////{
+        ////    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[1]/input", 5);
+        ////    userTextBox.SendKeys("msswathi9@gmail.com");
+        ////}
+        ////public void PasswordTextBox()
+        ////{
+        ////    // Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[2]/input", 5);
+        ////    passwordTestBox.SendKeys("Abcd@123");
+        ////}
+        ////public void LogInButton()
+        ////{
+        ////    //Wait.WaittobeClickable(driver, "Xpath", "/html/body/div[2]/div/div/div[1]/div/div[4]/button", 5);
+        ////    Thread.Sleep(2000);
+
+        ////    loginButton.Click();
+        ////}
     }
 }

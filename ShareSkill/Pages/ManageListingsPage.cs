@@ -1,5 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using ShareSkill.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace ShareSkill.Pages
 {
-    public class ManageListingsPage
+    public class ManageListingsPage : CommonDriver
     {
-        [FindsBy(How=How.XPath, Using = "//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[2]/i")]
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[2]")]
         public IWebElement editMangeListing { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[1]/div/div[2]/div/div[1]/input")]
 
-        public IWebElement editTitleTextbox { get; set; }
+        [FindsBy(How = How.Name, Using = "title")]
+        public IWebElement titleTextbox { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[2]/div/div[2]/div[1]/textarea")]
 
@@ -27,7 +30,7 @@ namespace ShareSkill.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[3]/div[2]/div/div[1]/select/option[4]")]
 
-        public IWebElement editCategory { get;set; }
+        public IWebElement editCategory { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[3]/div[2]/div/div[2]/div[1]/select")]
 
@@ -57,6 +60,8 @@ namespace ShareSkill.Pages
 
         public IWebElement editEndDate { get; set; }
 
+        [FindsBy(How = How.XPath)]
+
         [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[8]/div[2]/div/div[1]/div/input")]
 
         public IWebElement editTradeSkillExchange { get; set; }
@@ -65,7 +70,9 @@ namespace ShareSkill.Pages
 
         public IWebElement skillExchange { get; set; }
 
-        [FindsBy(How=How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[9]/div/div[2]/section/div/label/div/div/i[1]")]
+
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[9]/div/div[2]/section/div/label/div/div/i[1]")]
         public IWebElement removeWorkSample { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"service-listing-section\"]/div[2]/div/form/div[9]/div/div[2]/section/div/label/div/span/i")]
@@ -82,21 +89,20 @@ namespace ShareSkill.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[2]")]
 
-        public IWebElement category; 
+        public IWebElement category;
 
-        [FindsBy(How=How.XPath, Using = "//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[3]/i")]
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr/td[8]/div/button[3]/i")]
 
         public IWebElement deleteButton { get; set; }
 
-        [FindsBy(How=How.XPath, Using = "/html/body/div[2]/div/div[3]/button[2]")]
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div/div[3]/button[2]")]
 
-        public IWebElement yesButton { get; set;}
+        public IWebElement yesButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div")]
 
         public IWebElement AlertWindow;
 
-
-
     }
 }
+

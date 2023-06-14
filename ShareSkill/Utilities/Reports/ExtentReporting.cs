@@ -8,29 +8,29 @@ using AventStack.ExtentReports;
 
 using AventStack.ExtentReports.Reporter;
 
-namespace ShareSkill.Utilities
+namespace ShareSkill.Utilities.Reports
 {
 
-    public class ExtentReports
+    public class ExtentReporting
     {
-        private static ExtentReports extentReport;
+        private static ExtentReports extentReports;
         private static ExtentTest extentTest;
 
-       
+
         private static ExtentReports StartReporting()
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"..\..\..\..\Result\";
 
-            if (ExtentReports == null)
+            if (extentReports == null)
             {
                 Directory.CreateDirectory(path);
 
-                ExtentReports = new ExtentReports();
+                extentReports = new ExtentReports();
                 var htmlReporter = new ExtentHtmlReporter(path);
 
-                ExtentReports.AttachReporter(htmlReporter);
+                extentReports.AttachReporter(htmlReporter);
             }
-            return ExtentReports;
+            return extentReports;
         }
 
         public static void CreateTest(string testName)

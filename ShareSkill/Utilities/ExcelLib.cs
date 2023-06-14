@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Office.Excel;
 using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
+using DocumentFormat.OpenXml.Spreadsheet;
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using DataTable = System.Data.DataTable;
 
-namespace ShareSkill.Tests
+namespace ShareSkill.Utilities
 {
-    public static class ExcelDataReader
+    public static class ExcelLib
     {
-        private static DataTable ExcelToDataTable(string filename)
+
+        private static DataTable ExcelToDataTable(string filename, string sheetName)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -32,20 +34,29 @@ namespace ShareSkill.Tests
 
             });
             DataTableCollection table = resultSet.Tables;
-            DataTable resultTable = table["Sheet1"];
+            DataTable resultTable = table[sheetName];
             return resultTable;
         }
+
         public class DataCollection
         {
             public int rowNumber { get; set; }
             public string colName { get; set; }
             public string colValue { get; set; }
         }
+        public static void ClearData()
+        {
+            dataCol.Clear();
+        }
+        public static void fileClose(string fileName,string sheetName)
+        {
+            fileClose(fileName, sheetName);
+        }
         static List<DataCollection> dataCol = new List<DataCollection>();
-        public static void PopulateInCollection(string filename)
+        public static void PopulateInCollection(string filename, string sheetName)
         {
             // ExcelLib.ClearData();
-            DataTable table = ExcelToDataTable(filename);
+            DataTable table = ExcelToDataTable(filename, sheetName);
 
             for (int row = 1; row <= table.Rows.Count; row++)
             {
